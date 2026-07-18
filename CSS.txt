@@ -1,0 +1,398 @@
+CSS Cascading Style Sheet
+
+
+Syntax
+
+selector {
+    property: value;
+}
+
+Selector → Selects the HTML element.
+Property → The style to change.
+Value → The value assigned to the property.
+
+
+<p>Hello World</p>
+
+
+p {
+    color: blue;
+    font-size: 20px;
+}
+
+
+
+
+CSS Selectors
+
+Element Selector
+
+<h1>Heading</h1>
+
+h1 {
+    color: red;
+}
+
+
+
+ID Selector
+
+<h1 id="title">Welcome</h1>
+
+#title {
+    color: green;
+}
+
+
+
+Class Selector
+
+<p class="text">Hello</p>
+
+
+.text {
+    color: blue;
+}
+
+
+
+Universal Selector
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+CSS Specificity
+
+Priority high to low
+
+ID Selector
+
+↓
+
+Class Selector
+
+↓
+
+Element Selector
+
+↓
+
+Universal Selector
+
+
+<p id="para" class="text">Hello</p>
+
+
+p {
+    color: red;
+}
+
+.text {
+    color: blue;
+}
+
+#para {
+    color: green;
+}
+
+
+Output : Green
+
+
+
+
+CSS Colors
+
+Color Name
+
+color: red;
+
+RGB
+
+color: rgb(255,0,0);
+
+Hex
+
+color: #ff0000;
+
+
+
+CSS Backgrounds
+
+background-color: yellow;
+
+background-image: url("image.jpg");
+
+background-position: center;
+
+
+
+CSS Borders
+
+
+Border consists of
+
+Width
+Style
+Color
+
+
+border: 2px solid red;
+
+border-width:2px;
+border-style:solid;
+border-color:red;
+
+
+Border Radius
+
+border-radius:20px;
+
+
+
+Margin
+
+Margin is the space outside the border.
+
++------------------------+
+|       Margin           |
+|  +------------------+  |
+|  |     Border       |  |
+|  |                  |  |
+|  +------------------+  |
++------------------------+
+
+
+div{
+    margin:20px;
+}
+
+margin-top:20px;
+margin-right:15px;
+margin-bottom:10px;
+margin-left:5px;
+
+margin:10px 20px;
+
+means
+
+Top Bottom =10px
+Left Right =20px
+
+
+
+
+Padding
+
+Padding is the space inside the border.
+
+
+
+Border
++------------------+
+|    Padding       |
+|   +----------+   |
+|   | Content  |   |
+|   +----------+   |
++------------------+
+
+
+div{
+    padding:20px;
+}
+
+
+padding-top:10px;
+padding-right:20px;
+padding-bottom:10px;
+padding-left:20px;
+
+
+
+
+CSS Box Model
+
++----------------------------+
+|          Margin            |
+| +------------------------+ |
+| |        Border          | |
+| | +--------------------+ | |
+| | |      Padding       | | |
+| | | +---------------+  | | |
+| | | |   Content     |  | | |
+| | | +---------------+  | | |
+| | +--------------------+ | |
+| +------------------------+ |
++----------------------------+
+
+div{
+    width:200px;
+    padding:20px;
+    border:5px solid black;
+    margin:10px;
+}
+
+
+CSS Display Properties
+
+Example 1: Block
+
+
+<div class="box">Box 1</div>
+<div class="box">Box 2</div>
+
+.box{
+    display:block;
+}
+
+Output
+
+---------------------
+| Box 1             |
+---------------------
+
+---------------------
+| Box 2             |
+---------------------
+
+Each <div> starts on a new line.
+
+
+
+Example 2: Inline
+
+<span class="text">HTML</span>
+<span class="text">CSS</span>
+<span class="text">JavaScript</span>
+
+.text{
+    display:inline;
+}
+
+
+Output
+
+HTML CSS JavaScript
+
+Everything appears on the same line.
+
+
+
+Example 3: Inline-block
+
+.box{
+    display:inline-block;
+}
+
+Output
+
++---------+  +---------+
+| Box 1   |  | Box 2   |
++---------+  +---------+
+
+
+Example 4: None
+
+h1{
+    display:none;
+}
+
+The heading is completely hidden.
+
+
+
+
+CSS Typography
+
+Typography controls the appearance of text.
+
+Font Family
+
+p {
+    font-family: Arial, sans-serif;
+}
+
+
+Font Size
+
+font-size: 20px;
+
+
+Font Weight
+
+font-weight: bold;
+
+
+Text Alignment
+
+text-align: center;
+
+
+
+CSS Variables
+
+Variables store reusable values.
+
+Syntax
+
+:root{
+    --primary-color:blue;
+}
+
+Using Variable
+
+h1{
+    color:var(--primary-color);
+}
+
+
+
+Transitions
+
+Transitions make property changes smooth.
+
+Syntax
+
+transition: property duration;
+
+
+Example
+
+<button>Click Me</button>
+
+button{
+    background:blue;
+    color:white;
+    transition:0.5s;
+}
+
+
+button:hover{
+    background:red;
+}
+
+
+Without transition
+
+Blue → Red
+
+Instant change.
+
+With transition
+
+Blue
+ ↓
+Purple
+ ↓
+Red
+
+Smooth change over 0.5 seconds.
+
+
+
+
+

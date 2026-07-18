@@ -1,0 +1,114 @@
+/* Universal Selector */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* CSS Variables */
+:root{
+    --primary-color:#3498db;
+    --secondary-color:#2ecc71;
+    --text-color:white;
+}
+
+/* Element Selector */
+body{
+    background:#f4f4f4;
+    font-family:Arial, sans-serif;
+    padding:30px;
+}
+
+/* ID Selector */
+#title{
+    color:var(--primary-color);
+    text-align:center;
+    margin-bottom:20px;
+}
+
+/* Class Selector */
+.text{
+    color:#444;
+    font-size:20px;
+    text-align:center;
+    margin-bottom:30px;
+}
+
+/* Display Property */
+.box{
+    display:block;
+    width:400px;
+
+    background:white;
+
+    border:3px solid var(--primary-color);
+    border-radius:10px;
+
+    padding:20px;
+    margin:30px auto;
+
+    box-shadow:5px 5px 15px gray;
+
+    transition:0.5s;
+}
+
+/* Hover Effect */
+.box:hover{
+    transform:scale(1.05);
+    box-shadow:10px 10px 20px gray;
+}
+
+/* Typography */
+.box h2{
+    color:var(--primary-color);
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.box p{
+    font-size:18px;
+    line-height:1.6;
+}
+
+/* Button */
+button{
+
+    background:var(--primary-color);
+
+    color:var(--text-color);
+
+    border:none;
+
+    padding:10px 20px;
+
+    border-radius:5px;
+
+    cursor:pointer;
+
+    transition:0.5s;
+
+    margin-top:15px;
+}
+
+/* Button Hover */
+button:hover{
+    background:var(--secondary-color);
+}
+
+/* Inline Display */
+.inline{
+
+    display:inline-block;
+
+    background:orange;
+
+    padding:10px;
+
+    margin:10px;
+
+    border-radius:5px;
+
+    color:white;
+
+    font-weight:bold;
+}
