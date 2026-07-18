@@ -1,0 +1,43 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#eef2ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    width:420px;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:20px;
+    color:#2563eb;
+}
+
+p{
+    margin:8px 0;
+    font-size:18px;
+}
+
+.pass{
+    color:green;
+    font-weight:bold;
+}
+
+.fail{
+    color:red;
+    font-weight:bold;
+}
