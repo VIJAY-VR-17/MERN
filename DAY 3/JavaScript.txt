@@ -588,3 +588,802 @@ Output
 1
 7
 6
+
+
+
+1. Type Conversion
+
+Type Conversion is the process of converting a value from one data type to another.
+
+There are two types of type conversion:
+
+Implicit Type Conversion (Automatic)
+Explicit Type Conversion (Manual)
+Implicit Type Conversion
+
+JavaScript automatically converts one data type into another during an operation.
+
+Example
+let a = "10";
+let b = 5;
+
+console.log(a + b);   // "105"
+console.log(a - b);   // 5
+
+Explanation:
+
++ performs string concatenation when one operand is a string.
+-, *, and / convert strings to numbers automatically.
+Explicit Type Conversion
+
+The programmer manually converts one data type to another.
+
+Number()
+
+Converts a value into a number.
+
+let age = Number("20");
+
+console.log(age);
+
+Output
+
+20
+String()
+
+Converts a value into a string.
+
+let num = 100;
+
+let text = String(num);
+
+console.log(text);
+
+Output
+
+"100"
+Boolean()
+
+Converts a value into a Boolean.
+
+console.log(Boolean(1));
+console.log(Boolean(0));
+
+Output
+
+true
+false
+2. User Input
+
+JavaScript allows users to enter data using the prompt() method.
+
+Syntax
+prompt("Enter value");
+Example
+let name = prompt("Enter your name");
+
+console.log(name);
+
+Note: prompt() always returns the input as a string.
+
+To convert it into a number:
+
+let age = Number(prompt("Enter your age"));
+3. Output Methods
+
+JavaScript provides several methods to display output.
+
+document.write()
+
+Displays output on the webpage.
+
+document.write("Hello World");
+console.log()
+
+Displays output in the browser console.
+
+console.log("Hello World");
+alert()
+
+Displays output in an alert box.
+
+alert("Welcome");
+innerHTML
+
+Displays output inside an HTML element.
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = "Hello";
+</script>
+4. Conditional Statements
+
+Conditional statements execute different blocks of code based on a condition.
+
+Types:
+
+if
+if...else
+else if Ladder
+switch
+Ternary Operator
+if Statement
+
+Executes code only when the condition is true.
+
+let age = 20;
+
+if(age >= 18){
+    console.log("Eligible to Vote");
+}
+if...else Statement
+let age = 15;
+
+if(age >= 18){
+    console.log("Eligible");
+}
+else{
+    console.log("Not Eligible");
+}
+else if Ladder
+
+Used when multiple conditions need to be checked.
+
+let mark = 82;
+
+if(mark >= 90){
+    console.log("Grade A+");
+}
+else if(mark >= 80){
+    console.log("Grade A");
+}
+else{
+    console.log("Grade B");
+}
+switch Statement
+
+Used to select one block from multiple cases.
+
+let day = 2;
+
+switch(day){
+    case 1:
+        console.log("Monday");
+        break;
+
+    case 2:
+        console.log("Tuesday");
+        break;
+
+    default:
+        console.log("Invalid Day");
+}
+Ternary Operator
+
+A shorthand form of if...else.
+
+Syntax
+condition ? expression1 : expression2;
+Example
+let age = 18;
+
+let result = age >= 18 ? "Adult" : "Minor";
+5. Loops
+
+Loops execute a block of code repeatedly until a condition becomes false.
+
+Types:
+
+for Loop
+while Loop
+do...while Loop
+for Loop
+
+Used when the number of iterations is known.
+
+Syntax
+for(initialization; condition; increment){
+    statements;
+}
+Example
+for(let i=1;i<=5;i++){
+    console.log(i);
+}
+while Loop
+
+Checks the condition before execution.
+
+Syntax
+while(condition){
+    statements;
+}
+Example
+let i=1;
+
+while(i<=5){
+    console.log(i);
+    i++;
+}
+do...while Loop
+
+Executes the loop body at least once.
+
+Syntax
+do{
+    statements;
+}
+while(condition);
+Example
+let i=1;
+
+do{
+    console.log(i);
+    i++;
+}
+while(i<=5);
+6. Nested Loops
+
+A loop inside another loop is called a Nested Loop.
+
+Syntax
+for(...){
+
+    for(...){
+
+    }
+
+}
+Example
+for(let i=1;i<=3;i++){
+
+    for(let j=1;j<=3;j++){
+
+        console.log(i,j);
+
+    }
+
+}
+Applications
+Star Patterns
+Number Patterns
+Matrix Operations
+Tables
+7. Functions
+
+A Function is a reusable block of code that performs a specific task.
+
+Advantages
+Code Reusability
+Easy Maintenance
+Reduces Code Duplication
+Function Declaration
+Syntax
+function functionName(){
+
+}
+Example
+function greet(){
+
+    console.log("Welcome");
+
+}
+
+greet();
+Function with Parameters
+function add(a,b){
+
+    console.log(a+b);
+
+}
+
+add(10,20);
+Function with Return Value
+function square(n){
+
+    return n*n;
+
+}
+
+console.log(square(5));
+8. Scope
+
+Scope determines where a variable can be accessed.
+
+Types:
+
+Global Scope
+Local Scope (Function Scope)
+Block Scope
+Global Scope
+
+Variables declared outside all functions are accessible everywhere.
+
+let name = "Rahul";
+
+function display(){
+
+    console.log(name);
+
+}
+
+display();
+Local Scope
+
+Variables declared inside a function can only be accessed within that function.
+
+function show(){
+
+    let age = 20;
+
+    console.log(age);
+
+}
+
+Outside the function:
+
+console.log(age);
+
+Output
+
+ReferenceError
+Block Scope
+
+Variables declared using let and const inside a block {} are accessible only within that block.
+
+if(true){
+
+    let x = 10;
+
+    console.log(x);
+
+}
+
+Outside the block:
+
+console.log(x);
+
+Output
+
+ReferenceError
+
+
+
+
+
+
+
+
+Arrays
+
+An Array is a collection of multiple values stored in a single variable. Each value in an array is called an element, and every element has an index starting from 0.
+
+Features of Arrays
+Stores multiple values in a single variable.
+Elements can be of different data types.
+Arrays are dynamic; their size can change.
+Index starts from 0.
+Syntax
+let arrayName = [value1, value2, value3];
+Example
+let fruits = ["Apple", "Banana", "Orange"];
+
+console.log(fruits);
+console.log(fruits[0]);
+console.log(fruits[2]);
+
+Output
+
+["Apple", "Banana", "Orange"]
+Apple
+Orange
+Accessing Array Elements
+
+Array elements are accessed using their index.
+
+let colors = ["Red", "Green", "Blue"];
+
+console.log(colors[1]);
+
+Output
+
+Green
+Modifying Array Elements
+let colors = ["Red", "Green", "Blue"];
+
+colors[1] = "Yellow";
+
+console.log(colors);
+
+Output
+
+["Red", "Yellow", "Blue"]
+Array Methods
+length
+
+Returns the number of elements in an array.
+
+let numbers = [10, 20, 30];
+
+console.log(numbers.length);
+
+Output
+
+3
+push()
+
+Adds an element to the end of the array.
+
+let fruits = ["Apple", "Banana"];
+
+fruits.push("Orange");
+
+console.log(fruits);
+
+Output
+
+["Apple", "Banana", "Orange"]
+pop()
+
+Removes the last element.
+
+let fruits = ["Apple", "Banana", "Orange"];
+
+fruits.pop();
+
+console.log(fruits);
+
+Output
+
+["Apple", "Banana"]
+unshift()
+
+Adds an element at the beginning.
+
+let numbers = [20, 30];
+
+numbers.unshift(10);
+
+console.log(numbers);
+
+Output
+
+[10, 20, 30]
+shift()
+
+Removes the first element.
+
+let numbers = [10, 20, 30];
+
+numbers.shift();
+
+console.log(numbers);
+
+Output
+
+[20, 30]
+indexOf()
+
+Returns the index of an element.
+
+let fruits = ["Apple", "Banana", "Orange"];
+
+console.log(fruits.indexOf("Banana"));
+
+Output
+
+1
+includes()
+
+Checks whether an element exists.
+
+let fruits = ["Apple", "Banana", "Orange"];
+
+console.log(fruits.includes("Apple"));
+
+Output
+
+true
+join()
+
+Converts an array into a string.
+
+let colors = ["Red", "Green", "Blue"];
+
+console.log(colors.join("-"));
+
+Output
+
+Red-Green-Blue
+reverse()
+
+Reverses the array.
+
+let numbers = [1,2,3,4];
+
+numbers.reverse();
+
+console.log(numbers);
+
+Output
+
+[4,3,2,1]
+sort()
+
+Sorts array elements.
+
+let names = ["John","David","Alex"];
+
+names.sort();
+
+console.log(names);
+
+Output
+
+["Alex","David","John"]
+Objects
+
+An Object is a collection of key-value pairs.
+
+Key → Property name
+Value → Property value
+Syntax
+let objectName = {
+    key1 : value1,
+    key2 : value2
+};
+Example
+let student = {
+    name: "Rahul",
+    age: 20,
+    department: "IT"
+};
+
+console.log(student);
+
+Output
+
+{name:"Rahul", age:20, department:"IT"}
+Accessing Object Properties
+Dot Notation
+console.log(student.name);
+Bracket Notation
+console.log(student["age"]);
+
+Output
+
+Rahul
+20
+Modifying Object Properties
+student.age = 21;
+
+console.log(student.age);
+
+Output
+
+21
+Adding New Property
+student.city = "Chennai";
+
+console.log(student);
+Deleting Property
+delete student.department;
+
+console.log(student);
+Object Methods
+
+Object methods are built-in methods used to work with objects.
+
+Object.keys()
+
+Returns all property names.
+
+let student = {
+    name: "Rahul",
+    age: 20
+};
+
+console.log(Object.keys(student));
+
+Output
+
+["name","age"]
+Object.values()
+
+Returns all values.
+
+console.log(Object.values(student));
+
+Output
+
+["Rahul",20]
+Object.entries()
+
+Returns key-value pairs.
+
+console.log(Object.entries(student));
+
+Output
+
+[
+ ["name","Rahul"],
+ ["age",20]
+]
+hasOwnProperty()
+
+Checks whether a property exists.
+
+console.log(student.hasOwnProperty("age"));
+
+Output
+
+true
+Object with Method
+
+An object can also contain functions called methods.
+
+let student = {
+    name: "Rahul",
+
+    greet: function(){
+        console.log("Welcome");
+    }
+};
+
+student.greet();
+
+Output
+
+Welcome
+Strings
+
+A String is a sequence of characters enclosed in single quotes (' '), double quotes (" "), or backticks (` `).
+
+Example
+let name = "JavaScript";
+
+console.log(name);
+
+Output
+
+JavaScript
+String Methods
+length
+
+Returns the number of characters.
+
+let text = "JavaScript";
+
+console.log(text.length);
+
+Output
+
+10
+toUpperCase()
+
+Converts text to uppercase.
+
+let text = "javascript";
+
+console.log(text.toUpperCase());
+
+Output
+
+JAVASCRIPT
+toLowerCase()
+
+Converts text to lowercase.
+
+let text = "JAVASCRIPT";
+
+console.log(text.toLowerCase());
+
+Output
+
+javascript
+charAt()
+
+Returns a character at a specified index.
+
+let text = "JavaScript";
+
+console.log(text.charAt(4));
+
+Output
+
+S
+indexOf()
+
+Returns the index of a character or substring.
+
+let text = "JavaScript";
+
+console.log(text.indexOf("S"));
+
+Output
+
+4
+includes()
+
+Checks whether a string contains a value.
+
+let text = "JavaScript";
+
+console.log(text.includes("Script"));
+
+Output
+
+true
+slice()
+
+Extracts a part of a string.
+
+let text = "JavaScript";
+
+console.log(text.slice(0,4));
+
+Output
+
+Java
+substring()
+
+Returns a portion of a string.
+
+let text = "JavaScript";
+
+console.log(text.substring(4,10));
+
+Output
+
+Script
+replace()
+
+Replaces a substring.
+
+let text = "Hello World";
+
+console.log(text.replace("World","JavaScript"));
+
+Output
+
+Hello JavaScript
+split()
+
+Converts a string into an array.
+
+let text = "HTML,CSS,JavaScript";
+
+console.log(text.split(","));
+
+Output
+
+["HTML","CSS","JavaScript"]
+trim()
+
+Removes whitespace from both ends.
+
+let text = "   Hello   ";
+
+console.log(text.trim());
+
+Output
+
+Hello
+concat()
+
+Joins two strings.
+
+let first = "Hello";
+let second = "World";
+
+console.log(first.concat(" ", second));
+
+Output
+
+Hello World
+
+
+
+
+
+
