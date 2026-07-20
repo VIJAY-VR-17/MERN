@@ -1,0 +1,470 @@
+DOM (Document Object Model)
+
+The Document Object Model (DOM) is a programming interface for HTML and XML documents. It represents the webpage as a tree structure of objects, allowing JavaScript to access, modify, add, or delete HTML elements dynamically.
+
+Features of DOM
+Represents an HTML document as a tree.
+Allows JavaScript to access HTML elements.
+Enables changing content, styles, and attributes.
+Allows adding or removing elements dynamically.
+Responds to user interactions.
+DOM Tree
+
+The DOM organizes an HTML document in a hierarchical tree structure.
+
+HTML Example
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Example</title>
+</head>
+<body>
+
+<h1>Welcome</h1>
+
+<p>Hello JavaScript</p>
+
+</body>
+</html>
+DOM Tree
+Document
+│
+└── html
+    │
+    ├── head
+    │     │
+    │     └── title
+    │
+    └── body
+          │
+          ├── h1
+          │
+          └── p
+Document → Root of the DOM.
+Element Nodes → HTML tags.
+Text Nodes → Text inside elements.
+Selecting Elements
+
+JavaScript provides several methods to select HTML elements.
+
+1. getElementById()
+
+Selects an element by its id.
+
+HTML
+<h1 id="title">Hello World</h1>
+JavaScript
+let heading = document.getElementById("title");
+
+console.log(heading);
+
+Output
+
+<h1 id="title">Hello World</h1>
+2. getElementsByClassName()
+
+Selects all elements with the same class name.
+
+HTML
+<p class="demo">HTML</p>
+<p class="demo">CSS</p>
+JavaScript
+let data = document.getElementsByClassName("demo");
+
+console.log(data);
+
+Output
+
+HTMLCollection(2)
+
+Access individual elements:
+
+console.log(data[0].innerHTML);
+
+Output
+
+HTML
+3. getElementsByTagName()
+
+Selects elements by tag name.
+
+HTML
+<p>One</p>
+<p>Two</p>
+JavaScript
+let para = document.getElementsByTagName("p");
+
+console.log(para.length);
+
+Output
+
+2
+4. querySelector()
+
+Selects the first matching element.
+
+HTML
+<p class="demo">HTML</p>
+<p class="demo">CSS</p>
+JavaScript
+let element = document.querySelector(".demo");
+
+console.log(element.innerHTML);
+
+Output
+
+HTML
+5. querySelectorAll()
+
+Selects all matching elements.
+
+let elements = document.querySelectorAll(".demo");
+
+console.log(elements.length);
+
+Output
+
+2
+Traversing DOM
+
+DOM Traversing means moving between related elements.
+
+parentElement
+
+Returns the parent of an element.
+
+HTML
+<div>
+    <p id="demo">Hello</p>
+</div>
+JavaScript
+let element = document.getElementById("demo");
+
+console.log(element.parentElement);
+
+Output
+
+<div>...</div>
+children
+
+Returns child elements.
+
+let body = document.body;
+
+console.log(body.children);
+
+Output
+
+HTMLCollection(...)
+firstElementChild
+
+Returns the first child element.
+
+console.log(document.body.firstElementChild);
+
+Output
+
+<h1>...</h1>
+lastElementChild
+
+Returns the last child element.
+
+console.log(document.body.lastElementChild);
+
+Output
+
+<p>...</p>
+nextElementSibling
+
+Returns the next sibling.
+
+HTML
+<h1 id="head">Heading</h1>
+<p>Paragraph</p>
+JavaScript
+let heading = document.getElementById("head");
+
+console.log(heading.nextElementSibling);
+
+Output
+
+<p>Paragraph</p>
+previousElementSibling
+
+Returns the previous sibling.
+
+let para = document.querySelector("p");
+
+console.log(para.previousElementSibling);
+
+Output
+
+<h1>Heading</h1>
+Creating Elements
+
+JavaScript can create new HTML elements dynamically.
+
+createElement()
+
+Creates a new element.
+
+let heading = document.createElement("h2");
+
+console.log(heading);
+
+Output
+
+<h2></h2>
+Adding Text
+let heading = document.createElement("h2");
+
+heading.innerHTML = "Welcome to JavaScript";
+
+document.body.appendChild(heading);
+
+Output
+
+Welcome to JavaScript
+
+Displayed on the webpage:
+
+Welcome to JavaScript
+appendChild()
+
+Adds an element as the last child.
+
+let p = document.createElement("p");
+
+p.innerHTML = "Learning DOM";
+
+document.body.appendChild(p);
+
+Output on Webpage
+
+Learning DOM
+prepend()
+
+Adds an element at the beginning.
+
+let h1 = document.createElement("h1");
+
+h1.innerHTML = "DOM Tutorial";
+
+document.body.prepend(h1);
+
+Output
+
+DOM Tutorial
+Removing Elements
+
+JavaScript allows removing existing elements.
+
+remove()
+HTML
+<p id="demo">Hello World</p>
+JavaScript
+document.getElementById("demo").remove();
+
+Output
+
+The paragraph is removed from the webpage.
+
+removeChild()
+HTML
+<div id="box">
+    <p id="text">Hello</p>
+</div>
+JavaScript
+let parent = document.getElementById("box");
+
+let child = document.getElementById("text");
+
+parent.removeChild(child);
+
+Output
+
+The <p> element is removed from the <div>.
+
+
+1. Updating HTML & CSS
+
+JavaScript can dynamically update the content and style of HTML elements without reloading the page.
+
+Common Ways to Update HTML
+innerHTML
+textContent
+innerText
+innerHTML
+
+The innerHTML property gets or sets the HTML content inside an element.
+
+HTML
+<p id="demo">Hello</p>
+JavaScript
+document.getElementById("demo").innerHTML = "<b>Welcome to JavaScript</b>";
+Output
+Welcome to JavaScript
+
+(The text appears in bold because innerHTML interprets HTML tags.)
+
+textContent
+
+The textContent property sets or returns only the text content.
+
+HTML
+<p id="demo">Hello</p>
+JavaScript
+document.getElementById("demo").textContent = "<b>Welcome</b>";
+Output
+<b>Welcome</b>
+
+Note: HTML tags are displayed as plain text.
+
+innerText
+
+Returns or sets only the visible text of an element.
+
+document.getElementById("demo").innerText = "Learning JavaScript";
+
+Output
+
+Learning JavaScript
+Updating CSS
+
+JavaScript can change CSS properties using the style property.
+
+HTML
+<h1 id="title">JavaScript</h1>
+JavaScript
+let heading = document.getElementById("title");
+
+heading.style.color = "blue";
+heading.style.fontSize = "40px";
+heading.style.backgroundColor = "yellow";
+Output
+JavaScript
+
+(Displayed with blue text, yellow background, and 40px font size.)
+
+Changing Multiple Styles
+let para = document.getElementById("demo");
+
+para.style.color = "red";
+para.style.fontWeight = "bold";
+para.style.border = "2px solid black";
+classList
+
+The classList property is used to add, remove, or toggle CSS classes.
+
+classList.add()
+
+Adds a CSS class.
+
+HTML
+<p id="text">Hello</p>
+CSS
+.highlight{
+    color:red;
+    font-size:24px;
+}
+JavaScript
+document.getElementById("text").classList.add("highlight");
+classList.remove()
+
+Removes a class.
+
+document.getElementById("text").classList.remove("highlight");
+classList.toggle()
+
+Adds the class if it doesn't exist; removes it if it does.
+
+document.getElementById("text").classList.toggle("highlight");
+2. Event Handling
+
+An Event is an action performed by the user or browser.
+
+Examples:
+
+Mouse Click
+Double Click
+Key Press
+Mouse Hover
+Form Submit
+Page Load
+Common Events
+Event	Description
+onclick	Mouse click
+ondblclick	Double click
+onmouseover	Mouse enters
+onmouseout	Mouse leaves
+onkeydown	Key pressed
+onkeyup	Key released
+onchange	Input value changes
+onsubmit	Form submitted
+onload	Page loaded
+onclick Event
+HTML
+<button onclick="showMessage()">Click Me</button>
+JavaScript
+function showMessage(){
+
+    alert("Button Clicked!");
+
+}
+Output
+Button Clicked!
+
+(Alert Box)
+
+addEventListener()
+
+addEventListener() is the recommended way to attach events to elements.
+
+Syntax
+element.addEventListener("event", function);
+Example
+HTML
+<button id="btn">Click</button>
+JavaScript
+let button = document.getElementById("btn");
+
+button.addEventListener("click", function(){
+
+    alert("Button Clicked");
+
+});
+Mouse Events
+HTML
+<p id="demo">Move Mouse Here</p>
+JavaScript
+let para = document.getElementById("demo");
+
+para.addEventListener("mouseover", function(){
+
+    para.style.color = "red";
+
+});
+Keyboard Event
+HTML
+<input type="text" id="name">
+JavaScript
+let input = document.getElementById("name");
+
+input.addEventListener("keyup", function(){
+
+    console.log(input.value);
+
+});
+Form Event
+HTML
+<form id="form">
+    <button>Submit</button>
+</form>
+JavaScript
+document.getElementById("form").addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    alert("Form Submitted");
+
+});
