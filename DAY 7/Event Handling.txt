@@ -1,0 +1,420 @@
+Event Handling
+
+What is an Event?
+
+An Event is an action or occurrence that happens in the browser. Events can be triggered by the user (clicking a button, typing on the keyboard) or by the browser (page loading, resizing).
+
+Examples of events:
+
+Clicking a button
+Pressing a key
+Moving the mouse
+Submitting a form
+Loading a webpage
+What is Event Handling?
+
+Event Handling is the process of writing JavaScript code that responds when an event occurs.
+
+Syntax
+element.addEventListener("event", function);
+element → HTML element
+event → Type of event (click, keyup, mouseover, etc.)
+function → Code to execute
+Ways to Handle Events
+1. Inline Event
+<button onclick="showMessage()">Click</button>
+
+<script>
+function showMessage(){
+    alert("Button Clicked");
+}
+</script>
+
+Output:
+
+Button Clicked
+2. Using JavaScript Property
+<button id="btn">Click</button>
+let button = document.getElementById("btn");
+
+button.onclick = function(){
+    alert("Button Clicked");
+};
+3. Using addEventListener() (Recommended)
+<button id="btn">Click</button>
+let button = document.getElementById("btn");
+
+button.addEventListener("click", function(){
+
+    alert("Button Clicked");
+
+});
+
+Output:
+
+Button Clicked
+Common Events
+Mouse Events
+Event	Description
+click	Single mouse click
+dblclick	Double click
+mouseover	Mouse enters element
+mouseout	Mouse leaves element
+mousedown	Mouse button pressed
+mouseup	Mouse button released
+
+Example
+
+button.addEventListener("mouseover", function(){
+
+    button.style.background = "green";
+
+});
+Keyboard Events
+Event	Description
+keydown	Key is pressed
+keyup	Key is released
+keypress	Key typed (deprecated)
+
+Example
+
+input.addEventListener("keyup", function(){
+
+    console.log(input.value);
+
+});
+
+If user types:
+
+Hello
+
+Console Output
+
+H
+He
+Hel
+Hell
+Hello
+Form Events
+Event	Description
+submit	Form submitted
+change	Input value changes
+input	Fires whenever value changes
+focus	Input gets focus
+blur	Input loses focus
+
+Example
+
+form.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    alert("Form Submitted");
+
+});
+Event Object
+
+Whenever an event occurs, JavaScript creates an Event Object.
+
+button.addEventListener("click", function(event){
+
+    console.log(event);
+
+});
+
+Useful Properties
+
+event.target
+
+Returns the clicked element.
+
+event.type
+
+Returns the event name.
+
+Output
+
+click
+event.preventDefault();
+
+Stops the browser's default behavior.
+
+Example
+
+Without preventDefault()
+
+Form reloads page.
+
+With preventDefault()
+
+Page does not reload.
+Event Bubbling
+
+When an event occurs, it first happens on the target element and then moves upward through its parent elements.
+
+Example
+
+<div>
+
+    <button>Click</button>
+
+</div>
+
+Clicking the button
+
+Button
+↓
+
+Div
+↓
+
+Body
+↓
+
+HTML
+↓
+
+Document
+
+This is called Event Bubbling.
+
+Event Capturing
+
+Opposite of bubbling.
+
+Document
+↓
+
+HTML
+↓
+
+Body
+↓
+
+Div
+↓
+
+Button
+
+Usually JavaScript uses Bubbling.
+
+2. Event Delegation
+What is Event Delegation?
+
+Instead of attaching event listeners to every child element, attach one event listener to the parent.
+
+It works because of Event Bubbling.
+
+Without Event Delegation
+
+item1.onclick=function(){}
+
+item2.onclick=function(){}
+
+item3.onclick=function(){}
+
+Three listeners are created.
+
+With Event Delegation
+
+<ul id="list">
+
+<li>HTML</li>
+
+<li>CSS</li>
+
+<li>JavaScript</li>
+
+</ul>
+let list=document.getElementById("list");
+
+list.addEventListener("click",function(event){
+
+    console.log(event.target.textContent);
+
+});
+
+Output
+
+Click HTML
+
+HTML
+
+Click CSS
+
+CSS
+
+Click JavaScript
+
+JavaScript
+
+Advantages
+
+Less memory usage
+Better performance
+Works for dynamically created elements
+Less code
+3. Form Validation
+What is Form Validation?
+
+Form Validation ensures users enter valid data before submitting a form.
+
+Validation can be
+
+HTML Validation
+JavaScript Validation
+HTML Validation
+<input type="email" required>
+
+If empty
+
+Output
+
+Please fill out this field.
+JavaScript Validation
+<input id="name">
+
+<button onclick="validate()">Submit</button>
+function validate(){
+
+let name=document.getElementById("name").value;
+
+if(name==""){
+
+alert("Name Required");
+
+}
+
+}
+
+Output
+
+Name Required
+Password Length Validation
+let password=document.getElementById("password").value;
+
+if(password.length<8){
+
+alert("Password must contain at least 8 characters");
+
+}
+Email Validation
+let email=document.getElementById("email").value;
+
+if(!email.includes("@")){
+
+alert("Invalid Email");
+
+}
+Number Validation
+let age=Number(document.getElementById("age").value);
+
+if(age<18){
+
+alert("Not Eligible");
+
+}
+4. Browser Events
+
+Browser Events occur automatically when the browser performs certain actions.
+
+load
+
+Occurs after webpage loads.
+
+window.onload=function(){
+
+alert("Page Loaded");
+
+}
+
+Output
+
+Page Loaded
+resize
+
+Occurs when browser size changes.
+
+window.addEventListener("resize",function(){
+
+console.log(window.innerWidth);
+
+});
+
+Resize browser
+
+Console
+
+1200
+
+900
+
+700
+scroll
+
+Occurs while scrolling.
+
+window.addEventListener("scroll",function(){
+
+console.log("Scrolling");
+
+});
+beforeunload
+
+Occurs before leaving page.
+
+window.addEventListener("beforeunload",function(event){
+
+event.preventDefault();
+
+});
+
+Browser asks confirmation before leaving.
+
+5. Local Storage
+What is Local Storage?
+
+Local Storage stores data permanently inside the browser.
+
+Data remains even after closing the browser.
+Stores only strings.
+Capacity about 5–10 MB (varies by browser).
+Store Data
+localStorage.setItem("name","Rahul");
+Retrieve Data
+console.log(localStorage.getItem("name"));
+
+Output
+
+Rahul
+Remove Item
+localStorage.removeItem("name");
+Clear All Data
+localStorage.clear();
+Example
+localStorage.setItem("city","Chennai");
+
+console.log(localStorage.getItem("city"));
+
+Output
+
+Chennai
+6. Session Storage
+What is Session Storage?
+
+Session Storage stores data only for the current browser session.
+
+Once the tab is closed, all stored data is removed.
+
+Store Data
+sessionStorage.setItem("user","Rahul");
+Retrieve Data
+console.log(sessionStorage.getItem("user"));
+
+Output
+
+Rahul
+Remove Item
+sessionStorage.removeItem("user");
+Clear Storage
+sessionStorage.clear();
